@@ -20,6 +20,7 @@ public class DetermineActivePorts {
                 System.out.println(
                         "There is a server running on port "
                                 + portNumber);
+                System.out.println(portCheck);
             }
             catch (UnknownHostException e) {
                 System.out.println("Exception occurred" + e);

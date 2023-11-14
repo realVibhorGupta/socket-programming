@@ -17,22 +17,27 @@ public class EchoServer {
 
             ServerSocket socketServer = new ServerSocket(9000);
             // connect it to client socket
-            Socket serverSocket = socketServer.accept();
-            System.out.println("Connection established");
-            // to read data coming from the client
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(serverSocket.getInputStream()));
-            String string =  bufferedReader.readLine();
-            // to send data to the client
-            PrintWriter printWriter = new PrintWriter(serverSocket.getOutputStream(),true);
-            printWriter.println("Server Says:" + string );
+            //blocking function
+            //while(true){
+                Socket serverSocket = socketServer.accept();
+                System.out.println("Connection established");
+                // to read data coming from the client
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(serverSocket.getInputStream()));
+                String string =  bufferedReader.readLine();
+                // to send data to the client
+                PrintWriter printWriter = new PrintWriter(serverSocket.getOutputStream(),true);
+                printWriter.println("Server Says:" + string );
 // close connection
-            printWriter.close();
-            bufferedReader.close();
-            socketServer.close();
-            serverSocket.close();
+                printWriter.close();
+                bufferedReader.close();
+                socketServer.close();
+                serverSocket.close();
+                //System.exit(0);
+
+            //}
+
 
             // terminate application
-            System.exit(0);
         } catch (IOException e) {
             throw new SecurityException(e);
         }
