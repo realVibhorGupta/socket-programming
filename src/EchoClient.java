@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 
 public class EchoClient {
@@ -9,6 +6,10 @@ public class EchoClient {
         System.out.println("Client Started");
         try {
             Socket  clientSocket =  new Socket("127.0.0.1",9000);
+            // to send data to the server
+            DataOutputStream dos
+                    = new DataOutputStream(
+                    clientSocket.getOutputStream());
 
             BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Enter a string");
