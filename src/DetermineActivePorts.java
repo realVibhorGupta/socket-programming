@@ -26,6 +26,7 @@ public class DetermineActivePorts {
                 break;
             }
             catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }
